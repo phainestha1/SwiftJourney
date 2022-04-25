@@ -13,7 +13,7 @@ struct SwiftJourneyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Main()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
