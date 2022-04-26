@@ -13,30 +13,37 @@ struct Main: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Image("logo")
-                    .frame(height: 80)
-
-                Spacer()
-                    .frame(height: 50)
-                                
-                // Start a new game.
-                NavigationLink(destination: Intro().navigationBarHidden(true)) {
-                    Image("startColor")
-                }
-                .isDetailLink(false)
-                .frame(height: 10)
+            ZStack {
+                Image("background")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(height: UIScreen.main.bounds.height)
                 
-                Spacer()
-                    .frame(height: 40)
-                
-                // Set Coredata to sava and load user's status.
-                // Disabled when there are no previous records.
-                Button(action: {}) {
-                    Image(saveDataAlive ? "continueColor" : "continueGray")
+                VStack {
+                    Image("logo")
+                        .frame(height: 80)
+                    
+                    Spacer()
+                        .frame(height: 50)
+                    
+                    // Start a new game.
+                    NavigationLink(destination: Intro().navigationBarHidden(true)) {
+                        Image("startColor")
+                    }
+                    .isDetailLink(false)
+                    .frame(height: 10)
+                    
+                    Spacer()
+                        .frame(height: 40)
+                    
+                    // Set Coredata to sava and load user's status.
+                    // Disabled when there are no previous records.
+                    Button(action: {}) {
+                        Image(saveDataAlive ? "continueColor" : "continueGray")
+                    }
+                    .frame(height: 10)
+                    .disabled(!saveDataAlive)
                 }
-                .frame(height: 10)
-                .disabled(!saveDataAlive)
             }
         }
     }
