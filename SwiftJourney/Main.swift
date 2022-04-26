@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct Main: View {
-    
-    var saveDataAlive: Bool = false
+    var saveDataAlive: Bool = true
     
     var body: some View {
         NavigationView {
@@ -38,19 +37,22 @@ struct Main: View {
                     
                     // Set Coredata to sava and load user's status.
                     // Disabled when there are no previous records.
-                    Button(action: {}) {
+                    NavigationLink(destination: SavedData().navigationBarHidden(true)) {
                         Image(saveDataAlive ? "continueColor" : "continueGray")
+
                     }
+                    .isDetailLink(false)
                     .frame(height: 10)
                     .disabled(!saveDataAlive)
                 }
             }
         }
     }
+        
 }
 
-struct Main_Previews: PreviewProvider {
-    static var previews: some View {
-        Main()
-    }
-}
+//struct Main_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Main()
+//    }
+//}

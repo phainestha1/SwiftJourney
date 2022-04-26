@@ -10,11 +10,16 @@ import SwiftUI
 struct Map: View {
     
     @State var backToMap: Bool = false
-    var mongmongCompleted: Bool = false
+    @EnvironmentObject var userData: MissionComplete
+
     
     var body: some View {
         NavigationView {
             VStack {
+                Button(action:{}) {
+                    Text("저장하기")
+                }
+
                 Text("어디로 가볼까?")
                 
                 Spacer()
@@ -37,9 +42,8 @@ struct Map: View {
                 }
                 .isDetailLink(false)
                 .padding()
-                .disabled(mongmongCompleted)
+                .disabled(userData.mongmong)
 
-                
 // Will be Updated. 🔥🔥🔥🔥
 //                NavigationLink(destination:
 //                                Forgetfulness()
@@ -61,6 +65,10 @@ struct Map: View {
                 
             }
         }
+        .onAppear {
+            print(userData.mongmong)
+        }
+
     }
 }
 

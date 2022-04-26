@@ -7,6 +7,6 @@
 
 import Foundation
 
-class MissionComplete {
+class MissionComplete: ObservableObject {
     @Published var mongmong: Bool = false
 }

@@ -21,6 +21,8 @@
 		7A3B0DEC2811820000E1F80A /* MongmongSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DEB2811820000E1F80A /* MongmongSolution.swift */; };
 		7A3B0DEE2811867E00E1F80A /* MongmongSolved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DED2811867E00E1F80A /* MongmongSolved.swift */; };
 		7AE30AAF2816CADD00EF7040 /* MissionComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE30AAE2816CADD00EF7040 /* MissionComplete.swift */; };
+		8933924F2817C5D4001A293E /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933924E2817C5D4001A293E /* SavedData.swift */; };
+		893392552817E0EA001A293E /* CoreDataItemHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893392542817E0EA001A293E /* CoreDataItemHandling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		7A3B0DEB2811820000E1F80A /* MongmongSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongmongSolution.swift; sourceTree = "<group>"; };
 		7A3B0DED2811867E00E1F80A /* MongmongSolved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongmongSolved.swift; sourceTree = "<group>"; };
 		7AE30AAE2816CADD00EF7040 /* MissionComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionComplete.swift; sourceTree = "<group>"; };
+		8933924E2817C5D4001A293E /* SavedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedData.swift; sourceTree = "<group>"; };
+		893392542817E0EA001A293E /* CoreDataItemHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataItemHandling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +80,9 @@
 				7A3B0DDF28116CC500E1F80A /* Main.swift */,
 				7A3B0DE128116F4900E1F80A /* Intro.swift */,
 				7A3B0DE32811795800E1F80A /* Map.swift */,
-				7A3B0DCE2811554900E1F80A /* ContentView.swift */,
+				8933924E2817C5D4001A293E /* SavedData.swift */,
 				7A3B0DD02811554A00E1F80A /* Assets.xcassets */,
-				7A3B0DD52811554A00E1F80A /* Persistence.swift */,
+				7A3B0DCE2811554900E1F80A /* ContentView.swift */,
 				7A3B0DCC2811554900E1F80A /* SwiftJourneyApp.swift */,
 				7A3B0DD72811554A00E1F80A /* SwiftJourney.xcdatamodeld */,
 				7A3B0DD22811554A00E1F80A /* Preview Content */,
@@ -117,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				7AE30AAE2816CADD00EF7040 /* MissionComplete.swift */,
+				7A3B0DD52811554A00E1F80A /* Persistence.swift */,
+				893392542817E0EA001A293E /* CoreDataItemHandling.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,8 +199,10 @@
 			files = (
 				7A3B0DE928117C6200E1F80A /* Forgetfulness.swift in Sources */,
 				7A3B0DE028116CC500E1F80A /* Main.swift in Sources */,
+				893392552817E0EA001A293E /* CoreDataItemHandling.swift in Sources */,
 				7A3B0DEC2811820000E1F80A /* MongmongSolution.swift in Sources */,
 				7AE30AAF2816CADD00EF7040 /* MissionComplete.swift in Sources */,
+				8933924F2817C5D4001A293E /* SavedData.swift in Sources */,
 				7A3B0DEE2811867E00E1F80A /* MongmongSolved.swift in Sources */,
 				7A3B0DD62811554A00E1F80A /* Persistence.swift in Sources */,
 				7A3B0DE228116F4900E1F80A /* Intro.swift in Sources */,

@@ -23,6 +23,9 @@ struct MongmongIntro: View {
     ]
     
     @State var lineIndex: Int = 0
+    @EnvironmentObject var userData: MissionComplete
+    
+    var coreDataItemHandling = CoreDataItemHandling()
     
     var body: some View {
         NavigationView {
@@ -63,7 +66,7 @@ struct MongmongIntro: View {
                         .padding()
                     VStack {
                         NavigationLink(destination:
-                                        MongmongSolution(mapIsActive: self.$mapIsActive)
+                                        MongmongSolution(mapIsActive: self.$mapIsActive, coreDataItemHandling: coreDataItemHandling)
                                             .navigationBarHidden(true))
                         {
                             Text("도와준다")
@@ -76,6 +79,9 @@ struct MongmongIntro: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            coreDataItemHandling.addItem(number: 1, isSolved: false)
         }
     }
 }

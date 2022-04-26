@@ -10,7 +10,9 @@ import SwiftUI
 struct MongmongSolved: View {
     
     @Binding var mapIsActive: Bool
-        
+    @EnvironmentObject var userData: MissionComplete
+    var coreDataItemHandling: CoreDataItemHandling
+            
     var body: some View {
         VStack {
             
@@ -28,5 +30,11 @@ struct MongmongSolved: View {
                 Text("마을로 돌아간다.")
             }
         }
+        .onAppear {
+            coreDataItemHandling.changeItems(number: 1, isSolved: true)
+        }
+//        .onChange(of: userData.mongmong) { newValue in
+//            print(newValue)
+//        }
     }
 }
