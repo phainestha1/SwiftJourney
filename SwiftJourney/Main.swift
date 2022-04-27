@@ -45,10 +45,10 @@ struct Main: View {
                     .frame(height: 10)
                     .disabled(!saveDataAlive)
                 }
+                .padding(.bottom, 150)
             }
         }
     }
-        
 }
 
 //struct Main_Previews: PreviewProvider {
