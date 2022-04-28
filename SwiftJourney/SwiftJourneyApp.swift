@@ -9,17 +9,15 @@ import SwiftUI
 
 @main
 struct SwiftJourneyApp: App {
-    @StateObject var userData = MissionComplete()
+    @StateObject var backToMap = BackToMap()
+    @StateObject var dataController = DataController()
     
-    let persistenceController = PersistenceController.shared
-
     var body: some Scene {
         WindowGroup {
             Main()
-                // Current status of the user, if the user does not save his/her data, it will be gone.
-                .environmentObject(userData)
-                // This handles saving data into the coredata
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            // Current status of the user, if the user does not save his/her data, it will be gone.
+                .environmentObject(backToMap)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
-    }    
+    }
 }

@@ -11,7 +11,6 @@
 		7A3B0DCF2811554900E1F80A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DCE2811554900E1F80A /* ContentView.swift */; };
 		7A3B0DD12811554A00E1F80A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A3B0DD02811554A00E1F80A /* Assets.xcassets */; };
 		7A3B0DD42811554A00E1F80A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A3B0DD32811554A00E1F80A /* Preview Assets.xcassets */; };
-		7A3B0DD62811554A00E1F80A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DD52811554A00E1F80A /* Persistence.swift */; };
 		7A3B0DD92811554A00E1F80A /* SwiftJourney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DD72811554A00E1F80A /* SwiftJourney.xcdatamodeld */; };
 		7A3B0DE028116CC500E1F80A /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DDF28116CC500E1F80A /* Main.swift */; };
 		7A3B0DE228116F4900E1F80A /* Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DE128116F4900E1F80A /* Intro.swift */; };
@@ -22,7 +21,12 @@
 		7A3B0DEE2811867E00E1F80A /* MongmongSolved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DED2811867E00E1F80A /* MongmongSolved.swift */; };
 		7AE30AAF2816CADD00EF7040 /* MissionComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE30AAE2816CADD00EF7040 /* MissionComplete.swift */; };
 		8933924F2817C5D4001A293E /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933924E2817C5D4001A293E /* SavedData.swift */; };
-		893392552817E0EA001A293E /* CoreDataItemHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893392542817E0EA001A293E /* CoreDataItemHandling.swift */; };
+		89339272281A67A4001A293E /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89339271281A67A4001A293E /* DataController.swift */; };
+		89339274281A6BD9001A293E /* BackToMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89339273281A6BD9001A293E /* BackToMap.swift */; };
+		8933927A281A84FE001A293E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89339276281A84FE001A293E /* User+CoreDataClass.swift */; };
+		8933927B281A84FE001A293E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89339277281A84FE001A293E /* User+CoreDataProperties.swift */; };
+		8933927C281A84FE001A293E /* Mission+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89339278281A84FE001A293E /* Mission+CoreDataClass.swift */; };
+		8933927D281A84FE001A293E /* Mission+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89339279281A84FE001A293E /* Mission+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +35,6 @@
 		7A3B0DCE2811554900E1F80A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7A3B0DD02811554A00E1F80A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A3B0DD32811554A00E1F80A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7A3B0DD52811554A00E1F80A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7A3B0DD82811554A00E1F80A /* SwiftJourney.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftJourney.xcdatamodel; sourceTree = "<group>"; };
 		7A3B0DDF28116CC500E1F80A /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		7A3B0DE128116F4900E1F80A /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
@@ -42,7 +45,14 @@
 		7A3B0DED2811867E00E1F80A /* MongmongSolved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongmongSolved.swift; sourceTree = "<group>"; };
 		7AE30AAE2816CADD00EF7040 /* MissionComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionComplete.swift; sourceTree = "<group>"; };
 		8933924E2817C5D4001A293E /* SavedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedData.swift; sourceTree = "<group>"; };
-		893392542817E0EA001A293E /* CoreDataItemHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataItemHandling.swift; sourceTree = "<group>"; };
+		89339271281A67A4001A293E /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		89339273281A6BD9001A293E /* BackToMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToMap.swift; sourceTree = "<group>"; };
+		89339276281A84FE001A293E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		89339277281A84FE001A293E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		89339278281A84FE001A293E /* Mission+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mission+CoreDataClass.swift"; sourceTree = "<group>"; };
+		89339279281A84FE001A293E /* Mission+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mission+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8933927E281AA5CB001A293E /* SwiftJourney2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftJourney2.xcdatamodel; sourceTree = "<group>"; };
+		8933927F281AA629001A293E /* SwiftJourney 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SwiftJourney 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,11 +130,39 @@
 		7AE30AAD2816CAC700EF7040 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8933925E28192A8D001A293E /* CoreData */,
 				7AE30AAE2816CADD00EF7040 /* MissionComplete.swift */,
-				7A3B0DD52811554A00E1F80A /* Persistence.swift */,
-				893392542817E0EA001A293E /* CoreDataItemHandling.swift */,
+				89339273281A6BD9001A293E /* BackToMap.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8933925E28192A8D001A293E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8933926028192AA1001A293E /* Mission */,
+				8933925F28192A9A001A293E /* User */,
+				89339271281A67A4001A293E /* DataController.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		8933925F28192A9A001A293E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				89339276281A84FE001A293E /* User+CoreDataClass.swift */,
+				89339277281A84FE001A293E /* User+CoreDataProperties.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		8933926028192AA1001A293E /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				89339278281A84FE001A293E /* Mission+CoreDataClass.swift */,
+				89339279281A84FE001A293E /* Mission+CoreDataProperties.swift */,
+			);
+			path = Mission;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,18 +237,22 @@
 			files = (
 				7A3B0DE928117C6200E1F80A /* Forgetfulness.swift in Sources */,
 				7A3B0DE028116CC500E1F80A /* Main.swift in Sources */,
-				893392552817E0EA001A293E /* CoreDataItemHandling.swift in Sources */,
+				8933927B281A84FE001A293E /* User+CoreDataProperties.swift in Sources */,
 				7A3B0DEC2811820000E1F80A /* MongmongSolution.swift in Sources */,
 				7AE30AAF2816CADD00EF7040 /* MissionComplete.swift in Sources */,
 				8933924F2817C5D4001A293E /* SavedData.swift in Sources */,
 				7A3B0DEE2811867E00E1F80A /* MongmongSolved.swift in Sources */,
-				7A3B0DD62811554A00E1F80A /* Persistence.swift in Sources */,
+				89339272281A67A4001A293E /* DataController.swift in Sources */,
 				7A3B0DE228116F4900E1F80A /* Intro.swift in Sources */,
 				7A3B0DE728117B9F00E1F80A /* MongmongIntro.swift in Sources */,
+				8933927C281A84FE001A293E /* Mission+CoreDataClass.swift in Sources */,
 				7A3B0DE42811795800E1F80A /* Map.swift in Sources */,
+				89339274281A6BD9001A293E /* BackToMap.swift in Sources */,
 				7A3B0DCF2811554900E1F80A /* ContentView.swift in Sources */,
+				8933927D281A84FE001A293E /* Mission+CoreDataProperties.swift in Sources */,
 				7A3B0DD92811554A00E1F80A /* SwiftJourney.xcdatamodeld in Sources */,
 				7A3B0DCD2811554900E1F80A /* SwiftJourneyApp.swift in Sources */,
+				8933927A281A84FE001A293E /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,9 +460,11 @@
 		7A3B0DD72811554A00E1F80A /* SwiftJourney.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				8933927F281AA629001A293E /* SwiftJourney 2.xcdatamodel */,
+				8933927E281AA5CB001A293E /* SwiftJourney2.xcdatamodel */,
 				7A3B0DD82811554A00E1F80A /* SwiftJourney.xcdatamodel */,
 			);
-			currentVersion = 7A3B0DD82811554A00E1F80A /* SwiftJourney.xcdatamodel */;
+			currentVersion = 8933927E281AA5CB001A293E /* SwiftJourney2.xcdatamodel */;
 			path = SwiftJourney.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct MongmongSolved: View {
-    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var users: FetchedResults<User>
+
+
     @Binding var mapIsActive: Bool
-    @EnvironmentObject var userData: MissionComplete
-    var coreDataItemHandling: CoreDataItemHandling
-            
+    
     var body: some View {
         VStack {
             
@@ -25,14 +26,27 @@ struct MongmongSolved: View {
             Text("몽몽이의 입장에서 말을 걸어주렴.")
             
             Button(action: {
-                self.mapIsActive = false
+//                let user = User(context: moc)
+//                user.userName = "나"
+//                user.mission = Mission(context: moc)
+//                user.mission?.missionNo = 1
+//                user.mission?.isSolved = true
+                let mission1 = Mission(context: moc)
+                mission1.missionName = "mongmong"
+                mission1.user = User(context: moc)
+                mission1.user?.userName = "나"
+                
+                try? moc.save()
+                
+//                self.mapIsActive = false
+                
             }) {
                 Text("마을로 돌아간다.")
             }
         }
-        .onAppear {
-            coreDataItemHandling.changeItems(number: 1, isSolved: true)
-        }
+//        .onAppear {
+//            coreDataItemHandling.changeItems(number: 1, isSolved: true)
+//        }
 //        .onChange(of: userData.mongmong) { newValue in
 //            print(newValue)
 //        }

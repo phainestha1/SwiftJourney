@@ -56,7 +56,21 @@ struct Intro: View {
                 Spacer()
                     .frame(height: 40)
                 
-                NavigationLink(destination: Map().navigationBarHidden(true)) {
+                NavigationLink(destination:
+                                Map()
+                    .navigationBarHidden(false)
+                    .navigationBarBackButtonHidden(true)
+                    .toolbar {
+                        ToolbarItemGroup(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                print("Hello user data saved successfully")
+                            }) {
+                                Text("저장하기")
+                                
+                            }
+                        }
+                    }
+                ) {
                     Text("할 일 찾기")
                 }
                 .disabled(lineIndex == storyLine.count-1 ? false : true)

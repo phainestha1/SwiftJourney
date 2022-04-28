@@ -10,7 +10,6 @@ import SwiftUI
 struct MongmongSolution: View {
     
     @Binding var mapIsActive: Bool
-    var coreDataItemHandling: CoreDataItemHandling
     
     var body: some View {
         NavigationView {
@@ -50,9 +49,10 @@ struct MongmongSolution: View {
                         Text("2번")
                     }
                     .padding()
-                    NavigationLink (destination:
-                                        MongmongSolved(mapIsActive: self.$mapIsActive, coreDataItemHandling: coreDataItemHandling)
-                                        .navigationBarBackButtonHidden(true)
+                    NavigationLink (
+                        destination:
+                            MongmongSolved(mapIsActive: self.$mapIsActive)
+                                .navigationBarBackButtonHidden(true)
                     ) {
                         Text("3번")
                     }

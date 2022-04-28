@@ -5,11 +5,21 @@
 //  Created by Noah's Ark on 2022/04/21.
 //
 
+import CoreData
 import SwiftUI
 
 struct Main: View {
     var saveDataAlive: Bool = true
     
+    // What about changing saving interfaces?
+    // Just show user's profile and his/her current status
+    // like how many questions he solved.. or when was the last login..
+    // and user should select continue button to move to the map screen.
+    // Cool~!
+    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var users: FetchedResults<User>
+        
     var body: some View {
         NavigationView {
             ZStack {
@@ -17,6 +27,12 @@ struct Main: View {
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .frame(height: UIScreen.main.bounds.height)
+                
+                Rectangle()
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(height: UIScreen.main.bounds.height)
+                    .background(.black)
+                    .opacity(0.15)
                 
                 VStack {
                     Image("logo")
@@ -44,6 +60,28 @@ struct Main: View {
                     .isDetailLink(false)
                     .frame(height: 10)
                     .disabled(!saveDataAlive)
+                
+                    Button(action: {
+        //                let user = User(context: moc)
+        //                user.userName = "나"
+        //                user.mission = Mission(context: moc)
+        //                user.mission?.missionNo = 1
+        //                user.mission?.isSolved = true
+                        let mission1 = Mission(context: moc)
+                        mission1.missionName = "mongmong"
+                        mission1.user = User(context: moc)
+                        mission1.user?.userName = "나"
+                        
+                        try? moc.save()
+                        
+        //                self.mapIsActive = false
+                        
+                    }) {
+                        Text("마을로 돌아간다.")
+                    }
+                    .foregroundColor(.white)
+                    .padding()
+                
                 }
                 .padding(.bottom, 150)
             }

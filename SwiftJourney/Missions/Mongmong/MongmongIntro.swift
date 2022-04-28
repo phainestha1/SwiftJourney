@@ -10,6 +10,7 @@ import SwiftUI
 struct MongmongIntro: View {
     
     @Binding var mapIsActive: Bool
+    
     let storyLine: [String] = [
         "몽몽아 앉아!",
         "...",
@@ -24,8 +25,6 @@ struct MongmongIntro: View {
     
     @State var lineIndex: Int = 0
     @EnvironmentObject var userData: MissionComplete
-    
-    var coreDataItemHandling = CoreDataItemHandling()
     
     var body: some View {
         NavigationView {
@@ -66,7 +65,7 @@ struct MongmongIntro: View {
                         .padding()
                     VStack {
                         NavigationLink(destination:
-                                        MongmongSolution(mapIsActive: self.$mapIsActive, coreDataItemHandling: coreDataItemHandling)
+                                        MongmongSolution(mapIsActive: self.$mapIsActive)
                                             .navigationBarHidden(true))
                         {
                             Text("도와준다")
@@ -79,9 +78,6 @@ struct MongmongIntro: View {
                     }
                 }
             }
-        }
-        .onAppear {
-            coreDataItemHandling.addItem(number: 1, isSolved: false)
         }
     }
 }

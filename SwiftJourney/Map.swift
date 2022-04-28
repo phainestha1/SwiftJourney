@@ -10,16 +10,12 @@ import SwiftUI
 struct Map: View {
     
     @State var backToMap: Bool = false
-    @EnvironmentObject var userData: MissionComplete
-
+    var saveData: FetchedResults<Mission>.Element?
     
+        
     var body: some View {
         NavigationView {
             VStack {
-                Button(action:{}) {
-                    Text("저장하기")
-                }
-
                 Text("어디로 가볼까?")
                 
                 Spacer()
@@ -42,7 +38,6 @@ struct Map: View {
                 }
                 .isDetailLink(false)
                 .padding()
-                .disabled(userData.mongmong)
 
 // Will be Updated. 🔥🔥🔥🔥
 //                NavigationLink(destination:
@@ -65,15 +60,11 @@ struct Map: View {
                 
             }
         }
-        .onAppear {
-            print(userData.mongmong)
-        }
-
     }
 }
 
-struct Map_Previews: PreviewProvider {
-    static var previews: some View {
-        Map()
-    }
-}
+//struct Map_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Map()
+//    }
+//}

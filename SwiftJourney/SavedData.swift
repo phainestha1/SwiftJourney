@@ -9,18 +9,23 @@ import SwiftUI
 
 struct SavedData: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(entity: Mission.entity() , sortDescriptors: [])
-    
-    var missionSaveData: FetchedResults<Mission>
-
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var userStatus: FetchedResults<User>
     
     var body: some View {
-        VStack {
-            Text("불러오기")
-            ForEach(missionSaveData) { item in
-                VStack {
-                    Text("\(item.missionNo)")
+        NavigationView {
+            VStack {
+                Text("불러오기")
+                    .padding()
+                
+                List {
+                    ForEach(userStatus, id: \.self) { user in
+                        Section(user.wrappedUserName) {
+                            ForEach(user.missionArray, id: \.self) { mission in
+                                Text(mission.wrappedMissionName)
+                            }
+                        }
+                    }
                 }
             }
         }
