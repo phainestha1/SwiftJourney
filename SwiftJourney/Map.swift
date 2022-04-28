@@ -12,6 +12,7 @@ struct Map: View {
     @State var backToMap: Bool = false
     @FetchRequest(sortDescriptors: []) var userStatus: FetchedResults<User>
     
+    // Search mission array with the "For" loop and matches mission names with the given parameter.
     func makeMissionArray(missionName: String) -> Bool {
         for mission in userStatus[0].missionArray {
             if mission.missionName == missionName {
