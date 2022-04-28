@@ -18,8 +18,16 @@ struct Main: View {
     // Cool~!
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var users: FetchedResults<User>
-        
+    @FetchRequest(sortDescriptors: []) var userStatus: FetchedResults<User>
+    
+    func detectUserData() -> Bool {
+        if userStatus[0].missionArray == [] {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -42,46 +50,29 @@ struct Main: View {
                         .frame(height: 50)
                     
                     // Start a new game.
-                    NavigationLink(destination: Intro().navigationBarHidden(true)) {
+                    NavigationLink(destination:
+                        Intro()
+                            .navigationBarHidden(true)
+                    ) {
                         Image("startColor")
                     }
                     .isDetailLink(false)
                     .frame(height: 10)
                     
                     Spacer()
-                        .frame(height: 40)
+                        .frame(height: 50)
                     
                     // Set Coredata to sava and load user's status.
                     // Disabled when there are no previous records.
-                    NavigationLink(destination: SavedData().navigationBarHidden(true)) {
-                        Image(saveDataAlive ? "continueColor" : "continueGray")
-
+                    NavigationLink(destination:
+                        SavedData()
+                            .navigationBarHidden(true)
+                    ) {
+                        Image(!detectUserData() ? "continueColor" : "continueGray")
                     }
                     .isDetailLink(false)
                     .frame(height: 10)
-                    .disabled(!saveDataAlive)
-                
-                    Button(action: {
-        //                let user = User(context: moc)
-        //                user.userName = "나"
-        //                user.mission = Mission(context: moc)
-        //                user.mission?.missionNo = 1
-        //                user.mission?.isSolved = true
-                        let mission1 = Mission(context: moc)
-                        mission1.missionName = "mongmong"
-                        mission1.user = User(context: moc)
-                        mission1.user?.userName = "나"
-                        
-                        try? moc.save()
-                        
-        //                self.mapIsActive = false
-                        
-                    }) {
-                        Text("마을로 돌아간다.")
-                    }
-                    .foregroundColor(.white)
-                    .padding()
-                
+                    .disabled(detectUserData())
                 }
                 .padding(.bottom, 150)
             }

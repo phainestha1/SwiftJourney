@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SavedData: View {
     
@@ -18,19 +19,31 @@ struct SavedData: View {
                 Text("불러오기")
                     .padding()
                 
-                List {
-                    ForEach(userStatus, id: \.self) { user in
-                        Section(user.wrappedUserName) {
-                            ForEach(user.missionArray, id: \.self) { mission in
-                                Text(mission.wrappedMissionName)
-                            }
-                        }
+                Text(userStatus[0].userName ?? "Unknown")
+                
+                NavigationLink(destination:
+                    Map()
+                        .navigationBarHidden(true)
+                ) {
+                    Text("\(userStatus[0].missionArray.count)")
+                }
+                
+//                ForEach(userStatus[0].missionArray, id: \.self) { mission in
+//                    Text(mission.wrappedMissionName)
+//                }
+                
+                Button("데이터 삭제") {
+                    for user in userStatus {
+                        user.removeFromMission(user.mission!)
                     }
+                    
+                    try? moc.save()
                 }
             }
         }
     }
 }
+
 
 struct SavedData_Previews: PreviewProvider {
     static var previews: some View {

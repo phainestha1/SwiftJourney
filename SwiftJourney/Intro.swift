@@ -12,9 +12,8 @@ struct Intro: View {
     let storyLine: [String] = [
         "스위프트 마법의 유일한 계승자인 나는",
         "여행 중 한 마을에 도착한다.",
-        "이 마을에서는 어쩌면",
-        "내가 해야만 하는 일이 있을지도 모른다는",
-        "그런 생각이 든다."
+        "이 마을에서는",
+        "내 도움이 필요한 사람이 있을지도!!",
     ]
     
     @State var lineIndex: Int = 0
@@ -24,8 +23,14 @@ struct Intro: View {
             VStack {
                 Image("wizard")
                     .padding(.bottom)
-
-                Text(storyLine[lineIndex])
+                
+                ZStack{
+                    Image("messageBox")
+                        .resizable()
+                        .frame(width: 320, height: 100)
+                    Text(storyLine[lineIndex])
+                        .foregroundColor(.white)
+                }
                 
                 Spacer()
                     .frame(height: 50)

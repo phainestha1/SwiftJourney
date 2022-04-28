@@ -10,8 +10,17 @@ import SwiftUI
 struct Map: View {
     
     @State var backToMap: Bool = false
-    var saveData: FetchedResults<Mission>.Element?
+    @FetchRequest(sortDescriptors: []) var userStatus: FetchedResults<User>
     
+    func makeMissionArray(missionName: String) -> Bool {
+        for mission in userStatus[0].missionArray {
+            if mission.missionName == missionName {
+                return true
+            }
+        }
+        
+        return false
+    }
         
     var body: some View {
         NavigationView {
@@ -28,7 +37,8 @@ struct Map: View {
                                 .toolbar {
                                     ToolbarItem(placement: .principal) {
                                         VStack {
-                                            Text("몽몽이가 말을 안들어!").font(.headline)
+                                            Text("몽몽이가 말을 안들어!")
+                                                .font(.headline)
                                         }
                                     }
                                 },
@@ -38,6 +48,7 @@ struct Map: View {
                 }
                 .isDetailLink(false)
                 .padding()
+                .disabled(makeMissionArray(missionName: "mongmong"))
 
 // Will be Updated. 🔥🔥🔥🔥
 //                NavigationLink(destination:
