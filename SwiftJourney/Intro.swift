@@ -63,7 +63,7 @@ struct Intro: View {
                 
                 NavigationLink(destination:
                                 Map()
-                    .navigationBarHidden(false)
+                    .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)
                     .toolbar {
                         ToolbarItemGroup(placement: .navigationBarTrailing) {

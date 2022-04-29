@@ -22,54 +22,68 @@ struct Map: View {
         
         return false
     }
-        
+    
     var body: some View {
         NavigationView {
-            VStack {
-                Text("어디로 가볼까?")
+            ZStack {
+                Image("village")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(height: UIScreen.main.bounds.height)
                 
-                Spacer()
-                    .frame(height: 50)
+                Rectangle()
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(height: UIScreen.main.bounds.height)
+                    .background(.black)
+                    .opacity(0.15)
                 
-                NavigationLink(destination:
-                            MongmongIntro(mapIsActive: self.$backToMap)
-                                .navigationBarTitleDisplayMode(.inline)
-                                .navigationBarBackButtonHidden(true)
-                                .toolbar {
-                                    ToolbarItem(placement: .principal) {
-                                        VStack {
-                                            Text("몽몽이가 말을 안들어!")
-                                                .font(.headline)
-                                        }
-                                    }
-                                },
-                            isActive: self.$backToMap
-                ) {
-                    Text("몽몽이가 말을 안들어!")
+                VStack {
+                    Text("어디로 가볼까?")
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                        .frame(height: 50)
+                    
+                    NavigationLink(destination:
+                                    MongmongIntro(mapIsActive: self.$backToMap)
+                                    .navigationBarTitleDisplayMode(.inline)
+                                    .navigationBarBackButtonHidden(true)
+                                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            VStack {
+                                Text("몽몽이가 말을 안들어!")
+                                    .font(.headline)
+                            }
+                        }
+                    },
+                                   isActive: self.$backToMap
+                    ) {
+                        Text("몽몽이가 말을 안들어!")
+                    }
+                    .isDetailLink(false)
+                    .padding()
+                    .disabled(makeMissionArray(missionName: "mongmong"))
+                    
+                    // Will be Updated. 🔥🔥🔥🔥
+                    //                NavigationLink(destination:
+                    //                                Forgetfulness()
+                    //                                    .navigationBarTitleDisplayMode(.inline)
+                    //                                    .navigationBarBackButtonHidden(true)
+                    //                                    .toolbar {
+                    //                                        ToolbarItem(placement: .principal) {
+                    //                                            VStack {
+                    //                                                Text("기억이 안나는구먼..").font(.headline)
+                    //                                            }
+                    //                                        }
+                    //                                    },
+                    //                               isActive: self.$backToMap
+                    //                ) {
+                    //                    Text("기억이 안나는구먼..")
+                    //                }
+                    //                .isDetailLink(false)
+                    //                .padding()
+                    
                 }
-                .isDetailLink(false)
-                .padding()
-                .disabled(makeMissionArray(missionName: "mongmong"))
-
-// Will be Updated. 🔥🔥🔥🔥
-//                NavigationLink(destination:
-//                                Forgetfulness()
-//                                    .navigationBarTitleDisplayMode(.inline)
-//                                    .navigationBarBackButtonHidden(true)
-//                                    .toolbar {
-//                                        ToolbarItem(placement: .principal) {
-//                                            VStack {
-//                                                Text("기억이 안나는구먼..").font(.headline)
-//                                            }
-//                                        }
-//                                    },
-//                               isActive: self.$backToMap
-//                ) {
-//                    Text("기억이 안나는구먼..")
-//                }
-//                .isDetailLink(false)
-//                .padding()
-                
             }
         }
     }
