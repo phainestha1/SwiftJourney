@@ -24,7 +24,6 @@ struct MongmongIntro: View {
     ]
     
     @State var lineIndex: Int = 0
-    @EnvironmentObject var userData: MissionComplete
     
     var body: some View {
         NavigationView {

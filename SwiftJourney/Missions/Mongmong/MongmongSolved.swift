@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MongmongSolved: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var users: FetchedResults<User>
+    @FetchRequest(sortDescriptors: []) var userStatus: FetchedResults<User>
     
     @Binding var mapIsActive: Bool
     

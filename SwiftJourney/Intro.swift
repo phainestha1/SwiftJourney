@@ -17,6 +17,8 @@ struct Intro: View {
     ]
     
     @State var lineIndex: Int = 0
+    @Binding var backToMain: Bool
+    @ObservedObject var newGameVerification = NewGameVerification()
     
     var body: some View {
         NavigationView {
@@ -62,7 +64,7 @@ struct Intro: View {
                     .frame(height: 40)
                 
                 NavigationLink(destination:
-                                Map()
+                                Map(isNewGame: newGameVerification.isNewGame, backToMain: self.$backToMain)
                     .navigationBarHidden(true)
                     .navigationBarBackButtonHidden(true)
                     .toolbar {
@@ -74,18 +76,12 @@ struct Intro: View {
                                 
                             }
                         }
-                    }
+                    }                               
                 ) {
                     Text("할 일 찾기")
                 }
                 .disabled(lineIndex == storyLine.count-1 ? false : true)
             }
         }
-    }
-}
-
-struct Intro_Previews: PreviewProvider {
-    static var previews: some View {
-        Intro()
     }
 }

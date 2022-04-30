@@ -9,8 +9,6 @@ import CoreData
 import SwiftUI
 
 struct Main: View {
-    var saveDataAlive: Bool = true
-    
     // What about changing saving interfaces?
     // Just show user's profile and his/her current status
     // like how many questions he solved.. or when was the last login..
@@ -19,6 +17,11 @@ struct Main: View {
     
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var userStatus: FetchedResults<User>
+    
+    @State var backToMainFromSave: Bool = false
+    @State var backToMainFromNewGame: Bool = false
+    @State private var alertShow: Bool = false
+
     
     func detectUserData() -> Bool {
         if userStatus[0].missionArray == [] {
@@ -50,29 +53,78 @@ struct Main: View {
                         .frame(height: 50)
                     
                     // Start a new game.
-                    NavigationLink(destination:
-                        Intro()
-                            .navigationBarHidden(true)
+                    // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+                    
+                    NavigationLink(
+                        destination:
+                            Intro(backToMain: self.$backToMainFromNewGame)
+                                .navigationBarHidden(true),
+                        isActive: self.$backToMainFromNewGame
                     ) {
-                        Image("startColor")
+                            Image("startColor")
                     }
                     .isDetailLink(false)
                     .frame(height: 10)
+
+//                    NavigationLink(
+//                        destination:
+//                            Intro(backToMain: self.$backToMainFromNewGame)
+//                                .navigationBarHidden(true),
+//                        isActive: self.$backToMainFromNewGame
+//                    ) {
+//                        Button(action: {
+//                            //✅ Detect whether there are saved data
+//                            if userStatus[0].missionArray != [] {
+//                                alertShow = true
+//                            } else {
+//                                alertShow = false
+//                            }
+//                        }) {
+//                            Image("startColor")
+//                        }
+//                        // ✅ Users will get the alert message if he/she already has saved experiences.
+//                        .alert(isPresented: $alertShow) {
+//                            Alert(
+//                                title: Text("알림"),
+//                                message: Text("기존 데이터를 삭제한 후 새로운 게임을 시작할까요?"),
+//                                primaryButton: .destructive(Text("네"), action: {
+//                                    // ✅ Move to the intro page to start a new game.
+//                                    for user in userStatus {
+//                                        user.removeFromMission(user.mission!)
+//
+//                                        try? moc.save()
+//                                    }
+//                                }),
+//                                secondaryButton: .cancel()
+//                            )
+//                        }
+//                    }
+//                    .isDetailLink(false)
+//                    .frame(height: 10)
+
+                    // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
                     
                     Spacer()
                         .frame(height: 50)
                     
                     // Set Coredata to sava and load user's status.
                     // Disabled when there are no previous records.
-                    NavigationLink(destination:
-                        SavedData()
-                            .navigationBarHidden(true)
+                    NavigationLink(
+                        destination: SavedData(backToMain : self.$backToMainFromSave)
+                                        .navigationBarHidden(true),
+                        isActive: self.$backToMainFromSave
                     ) {
                         Image(!detectUserData() ? "continueColor" : "continueGray")
                     }
                     .isDetailLink(false)
                     .frame(height: 10)
                     .disabled(detectUserData())
+                    
+                    Text("Todo List: New game error handling, Nav link inside button, my story")
+                        .foregroundColor(.white)
+                        .font(.title)
+                        .padding(.top, 50)
+                    
                 }
                 .padding(.bottom, 150)
             }
@@ -85,3 +137,21 @@ struct Main: View {
 //        Main()
 //    }
 //}
+
+
+// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+//
+//
+//NavigationLink(
+//    destination:
+//        Intro(backToMain: self.$backToMainFromNewGame)
+//            .navigationBarHidden(true),
+//    isActive: self.$backToMainFromNewGame
+//) {
+//        Image("startColor")
+//}
+//.isDetailLink(false)
+//.frame(height: 10)
+
+// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥

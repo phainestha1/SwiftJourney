@@ -9,11 +9,13 @@ import SwiftUI
 
 struct Map: View {
     
+    var isNewGame: Bool?
     @State var backToMap: Bool = false
+    @Binding var backToMain: Bool
     @FetchRequest(sortDescriptors: []) var userStatus: FetchedResults<User>
     
     // Search mission array with the "For" loop and matches mission names with the given parameter.
-    func makeMissionArray(missionName: String) -> Bool {
+    func completionVerification(missionName: String) -> Bool {
         for mission in userStatus[0].missionArray {
             if mission.missionName == missionName {
                 return true
@@ -44,45 +46,39 @@ struct Map: View {
                     Spacer()
                         .frame(height: 50)
                     
-                    NavigationLink(destination:
-                                    MongmongIntro(mapIsActive: self.$backToMap)
-                                    .navigationBarTitleDisplayMode(.inline)
-                                    .navigationBarBackButtonHidden(true)
-                                    .toolbar {
-                        ToolbarItem(placement: .principal) {
-                            VStack {
-                                Text("몽몽이가 말을 안들어!")
-                                    .font(.headline)
-                            }
-                        }
-                    },
-                                   isActive: self.$backToMap
+                    NavigationLink(
+                        destination:
+                            MongmongIntro(mapIsActive: self.$backToMap)
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationBarBackButtonHidden(true)
+                            .toolbar {
+                                ToolbarItem(placement: .principal) {
+                                    VStack {
+                                        Text("몽몽이가 말을 안들어!")
+                                            .font(.headline)
+                                    }
+                                }
+                            },
+                        isActive: self.$backToMap
                     ) {
                         Text("몽몽이가 말을 안들어!")
                     }
                     .isDetailLink(false)
                     .padding()
-                    .disabled(makeMissionArray(missionName: "mongmong"))
+                    // 🔥 Should verify if this screen is navigated by "Continue" or "New Game"
+                    // 🔥 Binding? Environment? Maybe no..
+                    // 🔥 Find the best way!! Now installed with observableobject
+                    .disabled(
+                        userStatus[0].missionArray != []
+                        ? isNewGame == true
+                            ? completionVerification(missionName: "mongmong") ? true : false
+                            : true
+                        : false
+                    )
                     
-                    // Will be Updated. 🔥🔥🔥🔥
-                    //                NavigationLink(destination:
-                    //                                Forgetfulness()
-                    //                                    .navigationBarTitleDisplayMode(.inline)
-                    //                                    .navigationBarBackButtonHidden(true)
-                    //                                    .toolbar {
-                    //                                        ToolbarItem(placement: .principal) {
-                    //                                            VStack {
-                    //                                                Text("기억이 안나는구먼..").font(.headline)
-                    //                                            }
-                    //                                        }
-                    //                                    },
-                    //                               isActive: self.$backToMap
-                    //                ) {
-                    //                    Text("기억이 안나는구먼..")
-                    //                }
-                    //                .isDetailLink(false)
-                    //                .padding()
-                    
+                    Button("메인으로") {
+                        self.backToMain = false
+                    }
                 }
             }
         }

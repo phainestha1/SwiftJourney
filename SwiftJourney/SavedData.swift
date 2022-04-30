@@ -13,6 +13,9 @@ struct SavedData: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var userStatus: FetchedResults<User>
     
+    @State private var confirmationShow: Bool = false
+    @Binding var backToMain: Bool
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -21,32 +24,39 @@ struct SavedData: View {
                 
                 Text(userStatus[0].userName ?? "Unknown")
                 
+                Image("wizard")
+                
                 NavigationLink(destination:
-                    Map()
-                        .navigationBarHidden(true)
+                                Map(backToMain: self.$backToMain)
+                    .navigationBarHidden(true)
                 ) {
-                    Text("\(userStatus[0].missionArray.count)")
+                    Text("성공한 미션 수: \(userStatus[0].missionArray.count)")
                 }
                 
-//                ForEach(userStatus[0].missionArray, id: \.self) { mission in
-//                    Text(mission.wrappedMissionName)
-//                }
+                //                ForEach(userStatus[0].missionArray, id: \.self) { mission in
+                //                    Text(mission.wrappedMissionName)
+                //                }
                 
                 Button("데이터 삭제") {
-                    for user in userStatus {
-                        user.removeFromMission(user.mission!)
+                    confirmationShow = true
+                }
+                .confirmationDialog("데이터를 삭제하시겠습니까?", isPresented: $confirmationShow) {
+                    Button("네", role: .destructive) {
+                        for user in userStatus {
+                            user.removeFromMission(user.mission!)
+                            
+                            try? moc.save()
+                            
+                            self.backToMain = false
+                        }
                     }
-                    
-                    try? moc.save()
+                    Button("아니오", role: .cancel) {}
+                }
+                
+                Button("메인으로") {
+                    self.backToMain = false
                 }
             }
         }
-    }
-}
-
-
-struct SavedData_Previews: PreviewProvider {
-    static var previews: some View {
-        SavedData()
     }
 }

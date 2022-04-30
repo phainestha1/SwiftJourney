@@ -33,7 +33,6 @@ extension User {
 
 // MARK: Generated accessors for mission
 extension User {
-
     @objc(addMissionObject:)
     @NSManaged public func addToMission(_ value: Mission)
 
@@ -45,9 +44,6 @@ extension User {
 
     @objc(removeMission:)
     @NSManaged public func removeFromMission(_ values: NSSet)
-
 }
 
-extension User : Identifiable {
-
-}
+extension User : Identifiable {}
