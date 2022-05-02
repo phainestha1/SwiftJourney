@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7A3B0DCD2811554900E1F80A /* SwiftJourneyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DCC2811554900E1F80A /* SwiftJourneyApp.swift */; };
-		7A3B0DCF2811554900E1F80A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DCE2811554900E1F80A /* ContentView.swift */; };
 		7A3B0DD12811554A00E1F80A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A3B0DD02811554A00E1F80A /* Assets.xcassets */; };
 		7A3B0DD42811554A00E1F80A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A3B0DD32811554A00E1F80A /* Preview Assets.xcassets */; };
 		7A3B0DD92811554A00E1F80A /* SwiftJourney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DD72811554A00E1F80A /* SwiftJourney.xcdatamodeld */; };
@@ -33,7 +32,6 @@
 /* Begin PBXFileReference section */
 		7A3B0DC92811554900E1F80A /* SwiftJourney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftJourney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A3B0DCC2811554900E1F80A /* SwiftJourneyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftJourneyApp.swift; sourceTree = "<group>"; };
-		7A3B0DCE2811554900E1F80A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7A3B0DD02811554A00E1F80A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A3B0DD32811554A00E1F80A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7A3B0DD82811554A00E1F80A /* SwiftJourney.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftJourney.xcdatamodel; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 				7A3B0DE32811795800E1F80A /* Map.swift */,
 				8933924E2817C5D4001A293E /* SavedData.swift */,
 				7A3B0DD02811554A00E1F80A /* Assets.xcassets */,
-				7A3B0DCE2811554900E1F80A /* ContentView.swift */,
 				7A3B0DCC2811554900E1F80A /* SwiftJourneyApp.swift */,
 				7A3B0DD72811554A00E1F80A /* SwiftJourney.xcdatamodeld */,
 				7A3B0DD22811554A00E1F80A /* Preview Content */,
@@ -252,7 +249,6 @@
 				8933927C281A84FE001A293E /* Mission+CoreDataClass.swift in Sources */,
 				7A3B0DE42811795800E1F80A /* Map.swift in Sources */,
 				89339274281A6BD9001A293E /* BackToMap.swift in Sources */,
-				7A3B0DCF2811554900E1F80A /* ContentView.swift in Sources */,
 				8933927D281A84FE001A293E /* Mission+CoreDataProperties.swift in Sources */,
 				7A3B0DD92811554A00E1F80A /* SwiftJourney.xcdatamodeld in Sources */,
 				7A3B0DCD2811554900E1F80A /* SwiftJourneyApp.swift in Sources */,

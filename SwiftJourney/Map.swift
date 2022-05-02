@@ -62,20 +62,15 @@ struct Map: View {
                         isActive: self.$backToMap
                     ) {
                         Text("몽몽이가 말을 안들어!")
+                            .foregroundColor(completionVerification(missionName: "mongmong") == true ? .white : .blue)
                     }
                     .isDetailLink(false)
                     .padding()
                     // 🔥 Should verify if this screen is navigated by "Continue" or "New Game"
                     // 🔥 Binding? Environment? Maybe no..
                     // 🔥 Find the best way!! Now installed with observableobject
-                    .disabled(
-                        userStatus[0].missionArray != []
-                        ? isNewGame == true
-                            ? completionVerification(missionName: "mongmong") ? true : false
-                            : true
-                        : false
-                    )
-                    
+                    .disabled(completionVerification(missionName: "mongmong"))
+
                     Button("메인으로") {
                         self.backToMain = false
                     }

@@ -22,52 +22,57 @@ struct Intro: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Image("wizard")
-                    .padding(.bottom)
+            ZStack {
+                Image("frame")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
                 
-                ZStack{
-                    Image("messageBox")
-                        .resizable()
-                        .frame(width: 320, height: 100)
-                    Text(storyLine[lineIndex])
-                        .foregroundColor(.white)
-                }
-                
-                Spacer()
-                    .frame(height: 50)
-                
-                HStack {
-                    Button(action: {
-                        lineIndex -= 1
-                    }) {
-                        Image(systemName: "arrowtriangle.backward.fill")
+                VStack {
+                    Image("wizard")
+                        .padding(.bottom)
+                    
+                    ZStack{
+                        Image("messageBox")
+                            .resizable()
+                            .frame(width: 320, height: 100)
+                        Text(storyLine[lineIndex])
+                            .foregroundColor(.white)
                     }
-                    .disabled(lineIndex == 0 ? true : false)
                     
                     Spacer()
-                        .frame(width: 30)
+                        .frame(height: 50)
                     
-                    Button(action: {
-                        if lineIndex < storyLine.count-1 {
-                            lineIndex += 1
-                        } else {
-                            lineIndex = 0
+                    HStack {
+                        Button(action: {
+                            lineIndex -= 1
+                        }) {
+                            Image(systemName: "arrowtriangle.backward.fill")
                         }
-                    }) {
-                        Image(systemName: "play.fill")
+                        .disabled(lineIndex == 0 ? true : false)
+                        
+                        Spacer()
+                            .frame(width: 30)
+                        
+                        Button(action: {
+                            if lineIndex < storyLine.count-1 {
+                                lineIndex += 1
+                            } else {
+                                lineIndex = 0
+                            }
+                        }) {
+                            Image(systemName: "play.fill")
+                        }
+                        .disabled(lineIndex == storyLine.count-1 ? true : false)
                     }
-                    .disabled(lineIndex == storyLine.count-1 ? true : false)
-                }
-                
-                Spacer()
-                    .frame(height: 40)
-                
-                NavigationLink(destination:
-                                Map(isNewGame: newGameVerification.isNewGame, backToMain: self.$backToMain)
-                    .navigationBarHidden(true)
-                    .navigationBarBackButtonHidden(true)
-                    .toolbar {
+                    
+                    Spacer()
+                        .frame(height: 40)
+                    
+                    NavigationLink(destination:
+                                    Map(isNewGame: newGameVerification.isNewGame, backToMain: self.$backToMain)
+                                    .navigationBarHidden(true)
+                                    .navigationBarBackButtonHidden(true)
+                                    .toolbar {
                         ToolbarItemGroup(placement: .navigationBarTrailing) {
                             Button(action: {
                                 print("Hello user data saved successfully")
@@ -76,11 +81,12 @@ struct Intro: View {
                                 
                             }
                         }
-                    }                               
-                ) {
-                    Text("할 일 찾기")
+                    }
+                    ) {
+                        Text("할 일 찾기")
+                    }
+                    .disabled(lineIndex == storyLine.count-1 ? false : true)
                 }
-                .disabled(lineIndex == storyLine.count-1 ? false : true)
             }
         }
     }

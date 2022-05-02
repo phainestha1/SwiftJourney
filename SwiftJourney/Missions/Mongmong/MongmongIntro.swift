@@ -27,52 +27,59 @@ struct MongmongIntro: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                HStack{
-                    Image("mongmong")
-                    Image("boy")
-                }
-                Text(storyLine[lineIndex])
-                    .padding()
+            ZStack {
+                Image("frame")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
                 
-                HStack {
-                    Button(action: {
-                        lineIndex -= 1
-                    }) {
-                        Image(systemName: "arrowtriangle.backward.fill")
+                VStack {
+                    HStack{
+                        Image("mongmong")
+                        Image("boy")
                     }
-                    .disabled(lineIndex == 0 ? true : false)
-                    
-                    Spacer()
-                        .frame(width: 30)
-                    
-                    Button(action: {
-                        if lineIndex < storyLine.count-1 {
-                            lineIndex += 1
-                        } else {
-                            lineIndex = 0
-                        }
-                    }) {
-                        Image(systemName: "play.fill")
-                    }
-                    .disabled(lineIndex == storyLine.count-1 ? true : false)
-                }
-                .padding()
-                
-                if lineIndex == storyLine.count-1 {
-                    Text("내 마법으로 문제를 알 수 있을 것 같다.")
+                    Text(storyLine[lineIndex])
                         .padding()
-                    VStack {
-                        NavigationLink(destination:
-                                        MongmongSolution(mapIsActive: self.$mapIsActive)
-                                            .navigationBarHidden(true))
-                        {
-                            Text("도와준다")
+                    
+                    HStack {
+                        Button(action: {
+                            lineIndex -= 1
+                        }) {
+                            Image(systemName: "arrowtriangle.backward.fill")
                         }
-                        .isDetailLink(false)
+                        .disabled(lineIndex == 0 ? true : false)
                         
-                        Button(action: {self.mapIsActive = false}) {
-                            Text("돌아간다")
+                        Spacer()
+                            .frame(width: 30)
+                        
+                        Button(action: {
+                            if lineIndex < storyLine.count-1 {
+                                lineIndex += 1
+                            } else {
+                                lineIndex = 0
+                            }
+                        }) {
+                            Image(systemName: "play.fill")
+                        }
+                        .disabled(lineIndex == storyLine.count-1 ? true : false)
+                    }
+                    .padding()
+                    
+                    if lineIndex == storyLine.count-1 {
+                        HStack {
+                            NavigationLink(destination:
+                                            MongmongSolution(mapIsActive: self.$mapIsActive)
+                                            .navigationBarHidden(true))
+                            {
+                                Text("도와준다")
+                            }
+                            .isDetailLink(false)
+                            
+                            Spacer()
+                                .frame(width: 50)
+                            
+                            Button(action: {self.mapIsActive = false}) {
+                                Text("돌아간다")
+                            }
                         }
                     }
                 }

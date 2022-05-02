@@ -5,8 +5,8 @@
 //  Created by Noah's Ark on 2022/04/21.
 //
 
-import CoreData
 import SwiftUI
+import CoreData
 
 struct Main: View {
     // What about changing saving interfaces?
@@ -53,56 +53,45 @@ struct Main: View {
                         .frame(height: 50)
                     
                     // Start a new game.
-                    // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-                    
                     NavigationLink(
                         destination:
                             Intro(backToMain: self.$backToMainFromNewGame)
                                 .navigationBarHidden(true),
                         isActive: self.$backToMainFromNewGame
                     ) {
+                        Button(action: {
+                            //✅ Detect whether there are saved data
+                            if userStatus[0].missionArray != [] {
+                                alertShow = true
+                            } else {
+                                alertShow = false
+                                self.backToMainFromNewGame = true
+                            }
+                        }) {
                             Image("startColor")
+                        }
+                        // ✅ Users will get the alert message if he/she already has saved experiences.
+                        .alert(isPresented: $alertShow) {
+                            Alert(
+                                title: Text("알림"),
+                                message: Text("기존 데이터를 삭제한 후 새로운 게임을 시작할까요?"),
+                                primaryButton: .destructive(Text("네"),
+                                action: {
+                                    // ✅ Move to the intro page to start a new game.
+                                    for user in userStatus {
+                                        user.removeFromMission(user.mission!)
+
+                                        try? moc.save()
+                                        
+                                        self.backToMainFromNewGame = true
+                                    }
+                                }),
+                                secondaryButton: .cancel(Text("아니오"))
+                            )
+                        }
                     }
                     .isDetailLink(false)
                     .frame(height: 10)
-
-//                    NavigationLink(
-//                        destination:
-//                            Intro(backToMain: self.$backToMainFromNewGame)
-//                                .navigationBarHidden(true),
-//                        isActive: self.$backToMainFromNewGame
-//                    ) {
-//                        Button(action: {
-//                            //✅ Detect whether there are saved data
-//                            if userStatus[0].missionArray != [] {
-//                                alertShow = true
-//                            } else {
-//                                alertShow = false
-//                            }
-//                        }) {
-//                            Image("startColor")
-//                        }
-//                        // ✅ Users will get the alert message if he/she already has saved experiences.
-//                        .alert(isPresented: $alertShow) {
-//                            Alert(
-//                                title: Text("알림"),
-//                                message: Text("기존 데이터를 삭제한 후 새로운 게임을 시작할까요?"),
-//                                primaryButton: .destructive(Text("네"), action: {
-//                                    // ✅ Move to the intro page to start a new game.
-//                                    for user in userStatus {
-//                                        user.removeFromMission(user.mission!)
-//
-//                                        try? moc.save()
-//                                    }
-//                                }),
-//                                secondaryButton: .cancel()
-//                            )
-//                        }
-//                    }
-//                    .isDetailLink(false)
-//                    .frame(height: 10)
-
-                    // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
                     
                     Spacer()
                         .frame(height: 50)
@@ -120,38 +109,9 @@ struct Main: View {
                     .frame(height: 10)
                     .disabled(detectUserData())
                     
-                    Text("Todo List: New game error handling, Nav link inside button, my story")
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .padding(.top, 50)
-                    
                 }
                 .padding(.bottom, 150)
             }
         }
     }
 }
-
-//struct Main_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Main()
-//    }
-//}
-
-
-// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-//
-//
-//NavigationLink(
-//    destination:
-//        Intro(backToMain: self.$backToMainFromNewGame)
-//            .navigationBarHidden(true),
-//    isActive: self.$backToMainFromNewGame
-//) {
-//        Image("startColor")
-//}
-//.isDetailLink(false)
-//.frame(height: 10)
-
-// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
