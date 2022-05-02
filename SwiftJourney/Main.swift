@@ -125,18 +125,12 @@ struct Main: View {
                                         .navigationBarHidden(true),
                         isActive: self.$backToMainFromStory
                     ) {
-                        Text("Story")
-                            .foregroundColor(.white)
+                        Image("storyColor")
+                        
                     }
                     .isDetailLink(false)
                     .frame(height: 10)
 
-                    //✅ Todo List
-                    Spacer()
-                        .frame(height: 50)
-                    Text("App Icon, Story, Design Details")
-                        .foregroundColor(.white)
-                    //✅ Todo List
                 }
                 .padding(.bottom, 150)
             }
