@@ -22,13 +22,8 @@ struct Main: View {
     @State var backToMainFromNewGame: Bool = false
     @State private var alertShow: Bool = false
 
-    
     func detectUserData() -> Bool {
-        if userStatus[0].missionArray == [] {
-            return true
-        } else {
-            return false
-        }
+        return userStatus.isEmpty
     }
     
     var body: some View {
@@ -61,7 +56,7 @@ struct Main: View {
                     ) {
                         Button(action: {
                             //✅ Detect whether there are saved data
-                            if userStatus[0].missionArray != [] {
+                            if !userStatus.isEmpty, userStatus[0].missionArray != [] {
                                 alertShow = true
                             } else {
                                 alertShow = false
@@ -103,11 +98,11 @@ struct Main: View {
                                         .navigationBarHidden(true),
                         isActive: self.$backToMainFromSave
                     ) {
-                        Image(!detectUserData() ? "continueColor" : "continueGray")
+                        Image(detectUserData() ? "continueColor" : "continueGray")
                     }
                     .isDetailLink(false)
                     .frame(height: 10)
-                    .disabled(detectUserData())
+                    .disabled(!detectUserData())
                     
                 }
                 .padding(.bottom, 150)

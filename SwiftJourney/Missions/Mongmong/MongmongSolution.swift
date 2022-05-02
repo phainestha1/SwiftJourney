@@ -17,7 +17,7 @@ struct MongmongSolution: View {
                 Image("frame")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
-
+                
                 VStack {
                     Text("방금 전 명령을 스위프트 마법을 통해 분석해보자.")
                     Text("무엇이 문제였을까?")
@@ -27,7 +27,7 @@ struct MongmongSolution: View {
                     
                     ZStack {
                         VStack{
-                            Text("var order: Int = '앉아!'")
+                            Text("let order: Int = '앉아!'")
                                 .frame(width: 300, alignment: .leading)
                                 .padding(.bottom, 10)
                             Text("func sitDown(order: String) -> String {")
@@ -44,26 +44,17 @@ struct MongmongSolution: View {
                     }
                     
                     VStack {
-                        Button(action: {}) {
-                            Text("1번")
-                        }
-                        .padding()
-                        Button(action: {}) {
-                            Text("2번")
-                        }
-                        .padding()
+                        WrongAnswerButton(description: "sitDown 함수의 파라미터 타입을 Int로 바꿔야 해")
+                        WrongAnswerButton(description: "sitDown 함수의 반환 타입을 Int로 바꿔야 해")
                         NavigationLink (
                             destination:
                                 MongmongSolved(mapIsActive: self.$mapIsActive)
                                 .navigationBarBackButtonHidden(true)
                         ) {
-                            Text("3번")
+                            Text("order 변수의 타입을 String으로 바꿔야 해")
                         }
                         .padding()
-                        Button(action: {}) {
-                            Text("4번")
-                        }
-                        .padding()
+                        WrongAnswerButton(description: "return 되는 값을 order + name 순서로 바꿔야 해")
                     }
                     .padding(.bottom, 100)
                     
@@ -72,6 +63,26 @@ struct MongmongSolution: View {
                     }
                 }
             }
+        }
+    }
+}
+
+struct WrongAnswerButton: View {
+    
+    let description: String
+    @State private var alertShow: Bool = false
+    
+    var body: some View {
+        Button(action: {self.alertShow = true}) {
+            Text(description)
+        }
+        .padding()
+        .alert("이런..!", isPresented: $alertShow) {
+            Button(action: {self.alertShow = false}) {
+                Text("생각하기")
+            }
+        } message: {
+            Text("다시 생각해볼까?")
         }
     }
 }

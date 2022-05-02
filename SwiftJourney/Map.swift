@@ -16,9 +16,11 @@ struct Map: View {
     
     // Search mission array with the "For" loop and matches mission names with the given parameter.
     func completionVerification(missionName: String) -> Bool {
-        for mission in userStatus[0].missionArray {
-            if mission.missionName == missionName {
-                return true
+        if !userStatus.isEmpty {
+            for mission in userStatus[0].missionArray {
+                if mission.missionName == missionName {
+                    return true
+                }
             }
         }
         
@@ -70,7 +72,7 @@ struct Map: View {
                     // 🔥 Binding? Environment? Maybe no..
                     // 🔥 Find the best way!! Now installed with observableobject
                     .disabled(completionVerification(missionName: "mongmong"))
-
+                    
                     Button("메인으로") {
                         self.backToMain = false
                     }
@@ -79,9 +81,3 @@ struct Map: View {
         }
     }
 }
-
-//struct Map_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Map()
-//    }
-//}
