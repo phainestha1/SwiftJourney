@@ -20,12 +20,13 @@ struct Main: View {
     
     @State var backToMainFromSave: Bool = false
     @State var backToMainFromNewGame: Bool = false
+    @State var backToMainFromStory: Bool = false
     @State private var alertShow: Bool = false
 
     func detectUserData() -> Bool {
         return userStatus.isEmpty
     }
-    
+        
     var body: some View {
         NavigationView {
             ZStack {
@@ -98,12 +99,44 @@ struct Main: View {
                                         .navigationBarHidden(true),
                         isActive: self.$backToMainFromSave
                     ) {
-                        Image(detectUserData() ? "continueColor" : "continueGray")
+                        Image(
+                            userStatus.isEmpty
+                            ? "continueGray"
+                            : userStatus[0].missionArray != []
+                                ? "continueColor"
+                                : "continueGray"
+                        )
                     }
                     .isDetailLink(false)
                     .frame(height: 10)
-                    .disabled(!detectUserData())
+                    .disabled(
+                        userStatus.isEmpty
+                        ? true
+                        : userStatus[0].missionArray != []
+                            ? false
+                            : true
+                    )
+                
+                    Spacer()
+                        .frame(height: 50)
                     
+                    NavigationLink(
+                        destination: Story(backToMain : self.$backToMainFromStory)
+                                        .navigationBarHidden(true),
+                        isActive: self.$backToMainFromStory
+                    ) {
+                        Text("Story")
+                            .foregroundColor(.white)
+                    }
+                    .isDetailLink(false)
+                    .frame(height: 10)
+
+                    //✅ Todo List
+                    Spacer()
+                        .frame(height: 50)
+                    Text("App Icon, Story, Design Details")
+                        .foregroundColor(.white)
+                    //✅ Todo List
                 }
                 .padding(.bottom, 150)
             }

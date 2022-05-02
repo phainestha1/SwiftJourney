@@ -27,6 +27,7 @@
 		8933927C281A84FE001A293E /* Mission+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89339278281A84FE001A293E /* Mission+CoreDataClass.swift */; };
 		8933927D281A84FE001A293E /* Mission+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89339279281A84FE001A293E /* Mission+CoreDataProperties.swift */; };
 		89339281281BCA9F001A293E /* NewGameVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89339280281BCA9F001A293E /* NewGameVerification.swift */; };
+		89339283281FC51D001A293E /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89339282281FC51D001A293E /* Story.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		8933927E281AA5CB001A293E /* SwiftJourney2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftJourney2.xcdatamodel; sourceTree = "<group>"; };
 		8933927F281AA629001A293E /* SwiftJourney 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SwiftJourney 2.xcdatamodel"; sourceTree = "<group>"; };
 		89339280281BCA9F001A293E /* NewGameVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameVerification.swift; sourceTree = "<group>"; };
+		89339282281FC51D001A293E /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				7A3B0DE528117B1A00E1F80A /* Missions */,
 				7A3B0DDF28116CC500E1F80A /* Main.swift */,
 				7A3B0DE128116F4900E1F80A /* Intro.swift */,
+				89339282281FC51D001A293E /* Story.swift */,
 				7A3B0DE32811795800E1F80A /* Map.swift */,
 				8933924E2817C5D4001A293E /* SavedData.swift */,
 				7A3B0DD02811554A00E1F80A /* Assets.xcassets */,
@@ -237,6 +240,7 @@
 			files = (
 				7A3B0DE928117C6200E1F80A /* Forgetfulness.swift in Sources */,
 				7A3B0DE028116CC500E1F80A /* Main.swift in Sources */,
+				89339283281FC51D001A293E /* Story.swift in Sources */,
 				89339281281BCA9F001A293E /* NewGameVerification.swift in Sources */,
 				8933927B281A84FE001A293E /* User+CoreDataProperties.swift in Sources */,
 				7A3B0DEC2811820000E1F80A /* MongmongSolution.swift in Sources */,

@@ -49,6 +49,7 @@ struct Intro: View {
                             Image(systemName: "arrowtriangle.backward.fill")
                         }
                         .disabled(lineIndex == 0 ? true : false)
+                        .foregroundColor(lineIndex == 0 ? .gray : .white)
                         
                         Spacer()
                             .frame(width: 30)
@@ -63,29 +64,21 @@ struct Intro: View {
                             Image(systemName: "play.fill")
                         }
                         .disabled(lineIndex == storyLine.count-1 ? true : false)
+                        .foregroundColor(lineIndex == storyLine.count-1 ? .gray : .white)
                     }
                     
                     Spacer()
                         .frame(height: 40)
                     
                     NavigationLink(destination:
-                                    Map(isNewGame: newGameVerification.isNewGame, backToMain: self.$backToMain)
-                                    .navigationBarHidden(true)
-                                    .navigationBarBackButtonHidden(true)
-                                    .toolbar {
-                        ToolbarItemGroup(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                print("Hello user data saved successfully")
-                            }) {
-                                Text("저장하기")
-                                
-                            }
-                        }
-                    }
+                        Map(isNewGame: newGameVerification.isNewGame, backToMain: self.$backToMain)
+                            .navigationBarHidden(true)
+                            .navigationBarBackButtonHidden(true)
                     ) {
                         Text("할 일 찾기")
                     }
                     .disabled(lineIndex == storyLine.count-1 ? false : true)
+                    .foregroundColor(lineIndex == storyLine.count-1 ? .white: .gray)
                 }
             }
         }

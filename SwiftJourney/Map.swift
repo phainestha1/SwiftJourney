@@ -64,7 +64,7 @@ struct Map: View {
                         isActive: self.$backToMap
                     ) {
                         Text("몽몽이가 말을 안들어!")
-                            .foregroundColor(completionVerification(missionName: "mongmong") == true ? .white : .blue)
+                            .foregroundColor(completionVerification(missionName: "mongmong") == true ? .gray : .white)
                     }
                     .isDetailLink(false)
                     .padding()
@@ -76,6 +76,7 @@ struct Map: View {
                     Button("메인으로") {
                         self.backToMain = false
                     }
+                    .foregroundColor(.white)
                 }
             }
         }

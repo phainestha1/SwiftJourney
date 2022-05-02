@@ -52,6 +52,7 @@ struct MongmongSolution: View {
                                 .navigationBarBackButtonHidden(true)
                         ) {
                             Text("order 변수의 타입을 String으로 바꿔야 해")
+                                .foregroundColor(.white)
                         }
                         .padding()
                         WrongAnswerButton(description: "return 되는 값을 order + name 순서로 바꿔야 해")
@@ -60,6 +61,7 @@ struct MongmongSolution: View {
                     
                     Button(action: {self.mapIsActive = false}) {
                         Text("마을로 돌아간다")
+                            .foregroundColor(.white)
                     }
                 }
             }
@@ -75,6 +77,7 @@ struct WrongAnswerButton: View {
     var body: some View {
         Button(action: {self.alertShow = true}) {
             Text(description)
+                .foregroundColor(.white)
         }
         .padding()
         .alert("이런..!", isPresented: $alertShow) {

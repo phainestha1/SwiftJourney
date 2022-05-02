@@ -27,6 +27,9 @@ struct MongmongSolved: View {
                 Text("이것이 문제였구나.")
                 Text("몽몽이의 입장에서 말을 걸어주렴.")
                 
+                Spacer()
+                    .frame(height: 50)
+                
                 Button(action: {
                     let mission1 = Mission(context: moc)
                     mission1.missionName = "mongmong"
@@ -39,6 +42,7 @@ struct MongmongSolved: View {
                     
                 }) {
                     Text("마을로 돌아간다.")
+                        .foregroundColor(.white)
                 }
             }
         }

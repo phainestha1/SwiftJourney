@@ -20,7 +20,7 @@ struct MongmongIntro: View {
         "...",
         "큰일이야, 친구들한테 자랑해놨는데..",
         "?",
-        "신기하게 생긴 사람이네? 혹시 나 좀 도와줄 수 있어?",
+        "신기하게 생긴 사람이네?\n혹시 나 좀 도와줄 수 있어?",
     ]
     
     @State var lineIndex: Int = 0
@@ -39,6 +39,7 @@ struct MongmongIntro: View {
                     }
                     Text(storyLine[lineIndex])
                         .padding()
+                        .multilineTextAlignment(.center)
                     
                     HStack {
                         Button(action: {
@@ -47,6 +48,7 @@ struct MongmongIntro: View {
                             Image(systemName: "arrowtriangle.backward.fill")
                         }
                         .disabled(lineIndex == 0 ? true : false)
+                        .foregroundColor(lineIndex == 0 ? .gray : .white)
                         
                         Spacer()
                             .frame(width: 30)
@@ -61,25 +63,28 @@ struct MongmongIntro: View {
                             Image(systemName: "play.fill")
                         }
                         .disabled(lineIndex == storyLine.count-1 ? true : false)
+                        .foregroundColor(lineIndex == storyLine.count-1 ? .gray : .white)
                     }
                     .padding()
                     
                     if lineIndex == storyLine.count-1 {
                         HStack {
+                            Button(action: {self.mapIsActive = false}) {
+                                Text("돌아간다")
+                                    .foregroundColor(.white)
+                            }
+                            
+                            Spacer()
+                                .frame(width: 50)
+                            
                             NavigationLink(destination:
                                             MongmongSolution(mapIsActive: self.$mapIsActive)
                                             .navigationBarHidden(true))
                             {
                                 Text("도와준다")
+                                    .foregroundColor(.white)
                             }
                             .isDetailLink(false)
-                            
-                            Spacer()
-                                .frame(width: 50)
-                            
-                            Button(action: {self.mapIsActive = false}) {
-                                Text("돌아간다")
-                            }
                         }
                     }
                 }
