@@ -82,7 +82,7 @@ struct MongmongIntro: View {
                                             .navigationBarHidden(true))
                             {
                                 Text("도와준다")
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.red)
                             }
                             .isDetailLink(false)
                         }
