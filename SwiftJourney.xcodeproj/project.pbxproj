@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A37F71428213BBD0027DD7B /* DungGeunMo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A37F71328213BBD0027DD7B /* DungGeunMo.ttf */; };
 		7A3B0DCD2811554900E1F80A /* SwiftJourneyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3B0DCC2811554900E1F80A /* SwiftJourneyApp.swift */; };
 		7A3B0DD12811554A00E1F80A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A3B0DD02811554A00E1F80A /* Assets.xcassets */; };
 		7A3B0DD42811554A00E1F80A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A3B0DD32811554A00E1F80A /* Preview Assets.xcassets */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A37F71328213BBD0027DD7B /* DungGeunMo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DungGeunMo.ttf; sourceTree = "<group>"; };
+		7A37F71528215DCB0027DD7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7A3B0DC92811554900E1F80A /* SwiftJourney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftJourney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A3B0DCC2811554900E1F80A /* SwiftJourneyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftJourneyApp.swift; sourceTree = "<group>"; };
 		7A3B0DD02811554A00E1F80A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A37F71128213B7D0027DD7B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				7A37F71328213BBD0027DD7B /* DungGeunMo.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		7A3B0DC02811554900E1F80A = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +98,8 @@
 		7A3B0DCB2811554900E1F80A /* SwiftJourney */ = {
 			isa = PBXGroup;
 			children = (
+				7A37F71528215DCB0027DD7B /* Info.plist */,
+				7A37F71128213B7D0027DD7B /* Font */,
 				7AE30AAD2816CAC700EF7040 /* Controllers */,
 				7A3B0DE528117B1A00E1F80A /* Missions */,
 				7A3B0DDF28116CC500E1F80A /* Main.swift */,
@@ -228,6 +241,7 @@
 			files = (
 				7A3B0DD42811554A00E1F80A /* Preview Assets.xcassets in Resources */,
 				7A3B0DD12811554A00E1F80A /* Assets.xcassets in Resources */,
+				7A37F71428213BBD0027DD7B /* DungGeunMo.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +404,7 @@
 				DEVELOPMENT_TEAM = DL9N9GFVMW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftJourney/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -419,6 +434,7 @@
 				DEVELOPMENT_TEAM = DL9N9GFVMW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftJourney/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -37,6 +37,7 @@ struct Intro: View {
                             .frame(width: 320, height: 100)
                         Text(storyLine[lineIndex])
                             .foregroundColor(.white)
+                            .font(.custom("DungGeunMo", size: 14))
                     }
                     
                     Spacer()

@@ -44,6 +44,7 @@ struct Map: View {
                 VStack {
                     Text("어디로 가볼까?")
                         .foregroundColor(.white)
+                        .font(.custom("DungGeunMo", size: 14))
                     
                     Spacer()
                         .frame(height: 50)
@@ -57,7 +58,7 @@ struct Map: View {
                                 ToolbarItem(placement: .principal) {
                                     VStack {
                                         Text("몽몽이가 말을 안들어!")
-                                            .font(.headline)
+                                            .font(.custom("DungGeunMo", size: 14))
                                     }
                                 }
                             },
@@ -65,6 +66,7 @@ struct Map: View {
                     ) {
                         Text("몽몽이가 말을 안들어!")
                             .foregroundColor(completionVerification(missionName: "mongmong") == true ? .gray : .white)
+                            .font(.custom("DungGeunMo", size: 14))
                     }
                     .isDetailLink(false)
                     .padding()
@@ -77,6 +79,7 @@ struct Map: View {
                         self.backToMain = false
                     }
                     .foregroundColor(.white)
+                    .font(.custom("DungGeunMo", size: 14))
                 }
             }
         }

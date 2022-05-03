@@ -21,11 +21,14 @@ struct MongmongSolved: View {
             VStack {
                 Text("몽몽이가 말을 안들어! 미션을 성공하였습니다.")
                     .foregroundColor(.red)
+                    .font(.custom("DungGeunMo", size: 14))
                 
                 Image("mongmongSitDown")
                 
                 Text("이것이 문제였구나.")
+                    .font(.custom("DungGeunMo", size: 14))
                 Text("몽몽이의 입장에서 말을 걸어주렴.")
+                    .font(.custom("DungGeunMo", size: 14))
                 
                 Spacer()
                     .frame(height: 50)
@@ -43,6 +46,7 @@ struct MongmongSolved: View {
                 }) {
                     Text("마을로 돌아간다.")
                         .foregroundColor(.white)
+                        .font(.custom("DungGeunMo", size: 14))
                 }
             }
         }

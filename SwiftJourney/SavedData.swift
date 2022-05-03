@@ -25,6 +25,7 @@ struct SavedData: View {
                 
                 VStack {
                     Text("불러오기")
+                        .font(.custom("DungGeunMo", size: 14))
                         .padding()
                     
                     Image("wizard")
@@ -34,6 +35,7 @@ struct SavedData: View {
                                     .navigationBarHidden(true)
                     ) {
                         Text("성공한 미션 수: \(userStatus[0].missionArray.count)")
+                            .font(.custom("DungGeunMo", size: 14))
                             .foregroundColor(.white)
                     }
                     
@@ -41,8 +43,9 @@ struct SavedData: View {
                         .frame(height: 50)
                     
                     HStack {
-                        Button("메인으로") {
-                            self.backToMain = false
+                        Button(action: {self.backToMain = false}) {
+                            Text("메인으로")
+                                .font(.custom("DungGeunMo", size: 14))
                         }
                         .foregroundColor(.white)
 
@@ -53,6 +56,7 @@ struct SavedData: View {
                             confirmationShow = true
                         }) {
                             Text("데이터 삭제")
+                                .font(.custom("DungGeunMo", size: 14))
                                 .foregroundColor(.red)
                         }
                         .foregroundColor(.white)

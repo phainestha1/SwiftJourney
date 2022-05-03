@@ -20,7 +20,9 @@ struct MongmongSolution: View {
                 
                 VStack {
                     Text("방금 전 명령을 스위프트 마법을 통해 분석해보자.")
+                        .font(.custom("DungGeunMo", size: 14))
                     Text("무엇이 문제였을까?")
+                        .font(.custom("DungGeunMo", size: 14))
                     
                     Spacer()
                         .frame(height: 50)
@@ -53,6 +55,7 @@ struct MongmongSolution: View {
                         ) {
                             Text("order 변수의 타입을 String으로 바꿔야 해")
                                 .foregroundColor(.white)
+                                .font(.custom("DungGeunMo", size: 14))
                         }
                         .padding()
                         WrongAnswerButton(description: "return 되는 값을 order + name 순서로 바꿔야 해")
@@ -78,6 +81,7 @@ struct WrongAnswerButton: View {
         Button(action: {self.alertShow = true}) {
             Text(description)
                 .foregroundColor(.white)
+                .font(.custom("DungGeunMo", size: 14))
         }
         .padding()
         .alert("이런..!", isPresented: $alertShow) {

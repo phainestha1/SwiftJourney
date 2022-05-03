@@ -40,6 +40,7 @@ struct MongmongIntro: View {
                     Text(storyLine[lineIndex])
                         .padding()
                         .multilineTextAlignment(.center)
+                        .font(.custom("DungGeunMo", size: 14))
                     
                     HStack {
                         Button(action: {
@@ -72,6 +73,7 @@ struct MongmongIntro: View {
                             Button(action: {self.mapIsActive = false}) {
                                 Text("돌아간다")
                                     .foregroundColor(.white)
+                                    .font(.custom("DungGeunMo", size: 14))
                             }
                             
                             Spacer()
@@ -83,6 +85,7 @@ struct MongmongIntro: View {
                             {
                                 Text("도와준다")
                                     .foregroundColor(.red)
+                                    .font(.custom("DungGeunMo", size: 14))
                             }
                             .isDetailLink(false)
                         }

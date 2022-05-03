@@ -9,12 +9,6 @@ import SwiftUI
 import CoreData
 
 struct Main: View {
-    // What about changing saving interfaces?
-    // Just show user's profile and his/her current status
-    // like how many questions he solved.. or when was the last login..
-    // and user should select continue button to move to the map screen.
-    // Cool~!
-    
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var userStatus: FetchedResults<User>
     
@@ -39,7 +33,7 @@ struct Main: View {
                     .edgesIgnoringSafeArea(.all)
                     .frame(height: UIScreen.main.bounds.height)
                     .background(.black)
-                    .opacity(0.15)
+                    .opacity(0.35)
                 
                 VStack {
                     Image("logo")
