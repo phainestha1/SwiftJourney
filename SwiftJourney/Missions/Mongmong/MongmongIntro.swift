@@ -37,22 +37,33 @@ struct MongmongIntro: View {
                         Image("mongmong")
                         Image("boy")
                     }
-                    Text(storyLine[lineIndex])
-                        .padding()
-                        .multilineTextAlignment(.center)
-                        .font(.custom("DungGeunMo", size: 14))
+                    ZStack {
+                        Image("messageBox")
+                            .resizable()
+                            .frame(width: 320, height: 100)
+                        
+                        Text(storyLine[lineIndex])
+                            .padding()
+                            .multilineTextAlignment(.center)
+                            .font(.custom("DungGeunMo", size: 14))
+                            .foregroundColor(.white)
+                    }
+                    
+                    Spacer()
+                        .frame(height: 50)
                     
                     HStack {
                         Button(action: {
                             lineIndex -= 1
                         }) {
-                            Image(systemName: "arrowtriangle.backward.fill")
+                            lineIndex == 0
+                            ? Image("arrowLeftDark")
+                            : Image("arrowLeft")
                         }
                         .disabled(lineIndex == 0 ? true : false)
-                        .foregroundColor(lineIndex == 0 ? .gray : .white)
-                        
+
                         Spacer()
-                            .frame(width: 30)
+                            .frame(width: 80)
                         
                         Button(action: {
                             if lineIndex < storyLine.count-1 {
@@ -61,33 +72,41 @@ struct MongmongIntro: View {
                                 lineIndex = 0
                             }
                         }) {
-                            Image(systemName: "play.fill")
+                            lineIndex == storyLine.count-1
+                            ? Image("arrowRightDark")
+                            : Image("arrowRight")
                         }
                         .disabled(lineIndex == storyLine.count-1 ? true : false)
                         .foregroundColor(lineIndex == storyLine.count-1 ? .gray : .white)
                     }
-                    .padding()
+                    
+                    Spacer()
+                        .frame(height: 70)
                     
                     if lineIndex == storyLine.count-1 {
-                        HStack {
-                            Button(action: {self.mapIsActive = false}) {
-                                Text("돌아간다")
-                                    .foregroundColor(.white)
-                                    .font(.custom("DungGeunMo", size: 14))
-                            }
-                            
-                            Spacer()
-                                .frame(width: 50)
-                            
+                        VStack {
                             NavigationLink(destination:
                                             MongmongSolution(mapIsActive: self.$mapIsActive)
                                             .navigationBarHidden(true))
                             {
-                                Text("도와준다")
-                                    .foregroundColor(.red)
-                                    .font(.custom("DungGeunMo", size: 14))
+                                ZStack {
+                                    Image("buttonBackground")
+                                    Text("도와준다")
+                                        .foregroundColor(.red)
+                                        .font(.custom("DungGeunMo", size: 14))
+                                }
                             }
                             .isDetailLink(false)
+                        }
+                        
+                        Button(action: {self.mapIsActive = false}) {
+                            ZStack{
+                                Image("buttonBackground")
+                                
+                                Text("돌아간다")
+                                    .foregroundColor(.white)
+                                    .font(.custom("DungGeunMo", size: 14))
+                            }
                         }
                     }
                 }

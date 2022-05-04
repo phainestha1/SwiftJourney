@@ -28,20 +28,16 @@ struct MongmongSolution: View {
                         .frame(height: 50)
                     
                     ZStack {
+                        Image("messageBox")
+                            .resizable()
+                            .frame(width: 350, height: 180)
+                        
                         VStack{
-                            Text("let order: Int = '앉아!'")
-                                .frame(width: 300, alignment: .leading)
+                            Text("let order: Int = '앉아!'\n\nfunc sitDown(order: String) -> String {\n  let name: String = '몽몽'\n  return name + order\n}")
+                                .font(.custom("DungGeunMo", size: 15))
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.leading)
                                 .padding(.bottom, 10)
-                            Text("func sitDown(order: String) -> String {")
-                                .frame(width: 300, alignment: .leading)
-                            Text("let name: String = '몽몽'")
-                                .frame(width: 300, alignment: .leading)
-                                .padding(.leading, 40)
-                            Text("return name + order")
-                                .frame(width: 300, alignment: .leading)
-                                .padding(.leading, 40)
-                            Text("}")
-                                .frame(width: 300, alignment: .leading)
                         }
                     }
                     
@@ -53,20 +49,30 @@ struct MongmongSolution: View {
                                 MongmongSolved(mapIsActive: self.$mapIsActive)
                                 .navigationBarBackButtonHidden(true)
                         ) {
-                            Text("order 변수의 타입을 String으로 바꿔야 해")
-                                .foregroundColor(.white)
-                                .font(.custom("DungGeunMo", size: 14))
+                            ZStack {
+                                Image("buttonBackground")
+                                    .resizable()
+                                    .frame(width: 380, height: 50)
+                                    .padding(.leading, 10)
+                                
+                                Text("order 변수의 타입을 String으로 바꿔야 해")
+                                    .foregroundColor(.white)
+                                    .font(.custom("DungGeunMo", size: 14))
+                            }
                         }
-                        .padding()
-                        WrongAnswerButton(description: "return 되는 값을 order + name 순서로 바꿔야 해")
                     }
-                    .padding(.bottom, 100)
+                    .padding(.bottom, 20)
+                    WrongAnswerButton(description: "return 되는 값을 order + name 순서로 바꿔야 해")
                     
                     Button(action: {self.mapIsActive = false}) {
                         Text("마을로 돌아간다")
+                            .font(.custom("DungGeunMo", size: 14))
                             .foregroundColor(.white)
                     }
+                    .padding(.top, 50)
+                    
                 }
+                .padding(.bottom, 100)
             }
         }
     }
@@ -79,11 +85,19 @@ struct WrongAnswerButton: View {
     
     var body: some View {
         Button(action: {self.alertShow = true}) {
-            Text(description)
-                .foregroundColor(.white)
-                .font(.custom("DungGeunMo", size: 14))
+            ZStack {
+                Image("buttonBackground")
+                    .resizable()
+                    .frame(width: 380, height: 50)
+                    .padding(.leading, 10)
+                
+                
+                Text(description)
+                    .foregroundColor(.white)
+                    .font(.custom("DungGeunMo", size: 14))
+            }
         }
-        .padding()
+        .padding(.bottom, 20)
         .alert("이런..!", isPresented: $alertShow) {
             Button(action: {self.alertShow = false}) {
                 Text("생각하기")

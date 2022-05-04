@@ -47,13 +47,14 @@ struct Intro: View {
                         Button(action: {
                             lineIndex -= 1
                         }) {
-                            Image(systemName: "arrowtriangle.backward.fill")
+                            lineIndex == 0
+                            ? Image("arrowLeftDark")
+                            : Image("arrowLeft")
                         }
                         .disabled(lineIndex == 0 ? true : false)
-                        .foregroundColor(lineIndex == 0 ? .gray : .white)
-                        
+
                         Spacer()
-                            .frame(width: 30)
+                            .frame(width: 80)
                         
                         Button(action: {
                             if lineIndex < storyLine.count-1 {
@@ -62,21 +63,28 @@ struct Intro: View {
                                 lineIndex = 0
                             }
                         }) {
-                            Image(systemName: "play.fill")
+                            lineIndex == storyLine.count-1
+                            ? Image("arrowRightDark")
+                            : Image("arrowRight")
                         }
                         .disabled(lineIndex == storyLine.count-1 ? true : false)
                         .foregroundColor(lineIndex == storyLine.count-1 ? .gray : .white)
                     }
                     
                     Spacer()
-                        .frame(height: 40)
+                        .frame(height: 70)
                     
                     NavigationLink(destination:
-                        Map(isNewGame: newGameVerification.isNewGame, backToMain: self.$backToMain)
-                            .navigationBarHidden(true)
-                            .navigationBarBackButtonHidden(true)
+                                    Map(isNewGame: newGameVerification.isNewGame, backToMain: self.$backToMain)
+                                    .navigationBarHidden(true)
+                                    .navigationBarBackButtonHidden(true)
                     ) {
-                        Text("할 일 찾기")
+                        ZStack {
+                            Image("buttonBackground")
+                            
+                            Text("할 일 찾기")
+                                .font(.custom("DungGeunMo", size: 14))
+                        }
                     }
                     .disabled(lineIndex == storyLine.count-1 ? false : true)
                     .foregroundColor(lineIndex == storyLine.count-1 ? .white: .gray)

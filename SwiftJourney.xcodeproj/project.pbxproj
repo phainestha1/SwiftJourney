@@ -98,7 +98,6 @@
 		7A3B0DCB2811554900E1F80A /* SwiftJourney */ = {
 			isa = PBXGroup;
 			children = (
-				7A37F71528215DCB0027DD7B /* Info.plist */,
 				7A37F71128213B7D0027DD7B /* Font */,
 				7AE30AAD2816CAC700EF7040 /* Controllers */,
 				7A3B0DE528117B1A00E1F80A /* Missions */,
@@ -107,8 +106,9 @@
 				89339282281FC51D001A293E /* Story.swift */,
 				7A3B0DE32811795800E1F80A /* Map.swift */,
 				8933924E2817C5D4001A293E /* SavedData.swift */,
-				7A3B0DD02811554A00E1F80A /* Assets.xcassets */,
 				7A3B0DCC2811554900E1F80A /* SwiftJourneyApp.swift */,
+				7A3B0DD02811554A00E1F80A /* Assets.xcassets */,
+				7A37F71528215DCB0027DD7B /* Info.plist */,
 				7A3B0DD72811554A00E1F80A /* SwiftJourney.xcdatamodeld */,
 				7A3B0DD22811554A00E1F80A /* Preview Content */,
 			);

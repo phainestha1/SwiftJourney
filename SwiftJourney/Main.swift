@@ -124,15 +124,6 @@ struct Main: View {
                     }
                     .isDetailLink(false)
                     .frame(height: 10)
-
-                    // ✅ Todo List
-                    Text("Reusable Button designs like woody things...")
-                        .foregroundColor(.white)
-                    Text("Emphasize buttons from the background")
-                        .foregroundColor(.white)
-                    Text("Update font 둥근모꼴")
-                        .foregroundColor(.white)
-                
                 }
                 .padding(.bottom, 150)
             }

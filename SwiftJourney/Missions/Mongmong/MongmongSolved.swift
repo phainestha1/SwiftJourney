@@ -20,15 +20,21 @@ struct MongmongSolved: View {
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 Text("몽몽이가 말을 안들어! 미션을 성공하였습니다.")
-                    .foregroundColor(.red)
+                    .foregroundColor(.white)
                     .font(.custom("DungGeunMo", size: 14))
                 
                 Image("mongmongSitDown")
-                
-                Text("이것이 문제였구나.")
-                    .font(.custom("DungGeunMo", size: 14))
-                Text("몽몽이의 입장에서 말을 걸어주렴.")
-                    .font(.custom("DungGeunMo", size: 14))
+
+                ZStack {
+                    Image("messageBox")
+                        .resizable()
+                        .frame(width: 350, height: 180)
+                    
+                    Text("이것이 문제였구나.\n몽몽이의 입장에서 말을 걸어주렴.")
+                        .foregroundColor(.white)
+                        .font(.custom("DungGeunMo", size: 14))
+                        .multilineTextAlignment(.center)
+                }
                 
                 Spacer()
                     .frame(height: 50)

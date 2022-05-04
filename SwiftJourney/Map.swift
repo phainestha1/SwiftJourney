@@ -42,38 +42,51 @@ struct Map: View {
                     .opacity(0.15)
                 
                 VStack {
-                    Text("어디로 가볼까?")
-                        .foregroundColor(.white)
-                        .font(.custom("DungGeunMo", size: 14))
+                    ZStack {
+                        Image("messageBox")
+                            .resizable()
+                            .frame(width: 150, height: 60)
+
+                        Text("어디로 가볼까?")
+                            .foregroundColor(.white)
+                            .font(.custom("DungGeunMo", size: 14))
+                    }
                     
                     Spacer()
                         .frame(height: 50)
                     
-                    NavigationLink(
-                        destination:
-                            MongmongIntro(mapIsActive: self.$backToMap)
-                            .navigationBarTitleDisplayMode(.inline)
-                            .navigationBarBackButtonHidden(true)
-                            .toolbar {
-                                ToolbarItem(placement: .principal) {
-                                    VStack {
-                                        Text("몽몽이가 말을 안들어!")
-                                            .font(.custom("DungGeunMo", size: 14))
+                    ZStack {
+                        Image("buttonBackground")
+                        
+                        NavigationLink(
+                            destination:
+                                MongmongIntro(mapIsActive: self.$backToMap)
+                                .navigationBarTitleDisplayMode(.inline)
+                                .navigationBarBackButtonHidden(true)
+                                .toolbar {
+                                    ToolbarItem(placement: .principal) {
+                                        VStack {
+                                            Text("몽몽이가 말을 안들어!")
+                                                .font(.custom("DungGeunMo", size: 14))
+                                        }
                                     }
-                                }
-                            },
-                        isActive: self.$backToMap
-                    ) {
-                        Text("몽몽이가 말을 안들어!")
-                            .foregroundColor(completionVerification(missionName: "mongmong") == true ? .gray : .white)
-                            .font(.custom("DungGeunMo", size: 14))
+                                },
+                            isActive: self.$backToMap
+                        ) {
+                            Text("몽몽이가 말을 안들어!")
+                                .foregroundColor(completionVerification(missionName: "mongmong") == true ? .gray : .white)
+                                .font(.custom("DungGeunMo", size: 14))
+                        }
+                        .isDetailLink(false)
+                        .padding()
+                        // 🔥 Should verify if this screen is navigated by "Continue" or "New Game"
+                        // 🔥 Binding? Environment? Maybe no..
+                        // 🔥 Find the best way!! Now installed with observableobject
+                        .disabled(completionVerification(missionName: "mongmong"))
                     }
-                    .isDetailLink(false)
-                    .padding()
-                    // 🔥 Should verify if this screen is navigated by "Continue" or "New Game"
-                    // 🔥 Binding? Environment? Maybe no..
-                    // 🔥 Find the best way!! Now installed with observableobject
-                    .disabled(completionVerification(missionName: "mongmong"))
+                    
+                    Spacer()
+                        .frame(height: 50)
                     
                     Button("메인으로") {
                         self.backToMain = false
@@ -82,6 +95,7 @@ struct Map: View {
                     .font(.custom("DungGeunMo", size: 14))
                 }
             }
-        }
+            .padding(.bottom, 150)
+        }//Nav View
     }
 }
