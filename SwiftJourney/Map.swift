@@ -39,7 +39,7 @@ struct Map: View {
                     .edgesIgnoringSafeArea(.all)
                     .frame(height: UIScreen.main.bounds.height)
                     .background(.black)
-                    .opacity(0.15)
+                    .opacity(0.35)
                 
                 VStack {
                     ZStack {
